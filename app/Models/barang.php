@@ -15,8 +15,10 @@ class barang extends Model
      * @var array
      */
     protected $fillable = [
-        'image',
-        'title',
-        'content',
+        'nama_barang',
+        'jumlah',
+        'keterangan',
+        'harga_barang',
+        'id_kategori',
     ];
 }

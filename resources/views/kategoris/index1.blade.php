@@ -20,25 +20,22 @@
                 </div>
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-body">
-                        <a href="{{ route('posts.create') }}" class="btn btn-md btn-success mb-3">TAMBAH POST</a>
+                        <a href="{{ route('kategori.create') }}" class="btn btn-md btn-success mb-3">TAMBAH KATEGORI</a>
                         <table class="table table-bordered">
                             <thead>
                               <tr>
                                 <th scope="col">Nama Kategori</th>
+                                <th class="text-center" scope="col">Aksi</th>
                               </tr>
                             </thead>
                             <tbody>
                               @forelse ($kategoris as $kategori)
                                 <tr>
+                                    <td>{{ $kategori->nama_kategori }}</td>
                                     <td class="text-center">
-                                        <img src="{{ asset('/storage/posts/'.$post->image) }}" class="rounded" style="width: 150px">
-                                    </td>
-                                    <td>{{ $post->title }}</td>
-                                    <td>{!! $post->content !!}</td>
-                                    <td class="text-center">
-                                        <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('posts.destroy', $post->id) }}" method="POST">
-                                            <a href="{{ route('posts.show', $post->id) }}" class="btn btn-sm btn-dark">SHOW</a>
-                                            <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-sm btn-primary">EDIT</a>
+                                        <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('posts.destroy', $kategori->id) }}" method="POST">
+                                            <a href="{{ route('kategori.show', $kategori->id) }}" class="btn btn-sm btn-dark">SHOW</a>
+                                            <a href="{{ route('posts.edit', $kategori->id) }}" class="btn btn-sm btn-primary">EDIT</a>
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
@@ -78,3 +75,4 @@
 
 </body>
 </html>
+
